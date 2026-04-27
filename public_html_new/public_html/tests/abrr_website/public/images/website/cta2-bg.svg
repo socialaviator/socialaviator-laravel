@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 478" width="1920" height="478">
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ebf3ff } 
+	</style>
+	<path id="Background" class="shp0" d="M1920 0C1920 0 1628 87.78 1350 66C1350 66 970 19.78 744 68C518 116.22 488 129.78 244 54C244 54 100 5.78 0 88L-150 338L-24 618L1778 702L1940 500L1920 0Z" />
+</svg>

@@ -1,0 +1,118 @@
+body{
+  color: rgb(73, 72, 72) ;
+}
+
+.font-nunito {
+  font-family: nunito, sans-serif;
+}
+
+.font-MyFont {
+  font-family: "My Font", serif;
+}
+
+/* Home  Page CSS */
+.our_clients{
+    text-align: -webkit-center !important;
+}
+ /* custom css */
+ .our_clients .item{
+    width: 50% !important;
+    height: 10% !important;
+    overflow: hidden !important;
+  }
+  .owl-dots, .owl-nav{
+    display: none;
+  }
+.swiper{
+  text-align: -webkit-center;
+}
+  
+  /* RD page css */
+  .report_rd_title .pdf_icon,.excel_icon,.print_icon{
+    width: 25px;
+    height: 25px;
+  }
+  #description_tab h2 {
+    color: rgb(36, 36, 112);
+    font-weight: bolder;
+    font-size: x-large;
+    padding: 6px 0px;
+  }
+
+  #description_tab h3 {
+    color: rgb(36, 36, 112);
+    font-weight: bolder;
+    font-size: large;
+    padding: 6px 0px;
+  }
+
+  #description_tab img {
+    width: 100%;
+    height: 24rem;
+    padding: 1rem 6rem;
+  }
+
+  #description_tab ul {
+    list-style-type: disc;
+    line-height: 1.5;
+    padding: 0px 40px;
+
+  }
+
+  #description_tab ul li {
+    font-weight: 400;
+    font-size: medium;
+    /* padding: 0px 40px; */
+    /* line-height: 1.7; */
+  } 
+   #description_tab ul li h2 {
+    font-weight: 400;
+    font-size: large !important;
+  } 
+    #description_tab ul li h3 {
+    font-weight: 500;
+    font-size: large;
+    padding: 2px 0px;
+  }
+
+  #description_tab p {
+    padding: 0px 40px;
+    padding: 15px;
+    line-height: 1.7;
+  }
+
+
+  .rd-table td {
+    padding: 5px 10px;
+  }
+
+  .interactive_companies_div {
+    background-color: rgba(123, 216, 247, 0.236);
+    /* border: 1px solid blue; */
+    border-radius: 20px;
+    padding: 20px 40px;
+  }
+
+  .interactive_companies_div ul {
+    padding: 0px 60px;
+  }
+
+  @media (max-width: 640px) {
+    #description_tab ul {
+      list-style-type: disc;
+      line-height: 1.5;
+      padding: 0px 20px;
+    }
+
+    #description_tab p {
+      padding: 0px 20px;
+      padding: 8px;
+      line-height: 1.5;
+    }
+
+    #description_tab img {
+      width: 100%;
+      height: 12rem;
+      padding: 0.5rem 3rem;
+    }
+  }

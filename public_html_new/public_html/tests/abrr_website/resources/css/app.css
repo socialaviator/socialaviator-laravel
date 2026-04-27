@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* add the code bellow */
+@layer utilities {
+
+  /* Hides the scrollbar on the body but keeps scrolling */
+  body {
+    overflow-y: scroll;
+    /* Enables vertical scrolling */
+    scrollbar-width: 0px;
+    /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none;
+    /* Hides scrollbar in IE/Edge */
+ 
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+    /* Hides scrollbar in WebKit browsers (Chrome, Safari, Edge) */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+
+  @media not all and (min-width: 640px) {
+    .max-tablet\:px-2 {
+      padding-left: 0.5rem
+        /* 8px */
+      ;
+      padding-right: 0.5rem
+        /* 8px */
+      ;
+    }
+  }
+
+  @media not all and (min-width: 640px) {
+    .max-tablet\:h-60 {
+      height: 15rem
+        /* 240px */
+      ;
+    }
+  }
+
+}
