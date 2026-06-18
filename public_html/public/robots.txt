@@ -1,2 +1,91 @@
+# robots.txt for socialaviator.in
+# Updated: 2026-04-29
+# Global SEO Edition (India + UK + USA + UAE)
+
+# Allow all search engines
 User-agent: *
-Disallow:
+Allow: /
+Crawl-delay: 1
+
+# Block Laravel internal + admin routes (private)
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+Disallow: /api/
+Disallow: /sanctum/
+Disallow: /_ignition/
+Disallow: /horizon/
+Disallow: /livewire/
+Disallow: /storage/framework/
+
+# Block search/filter URLs (avoid duplicate content)
+Disallow: /*?s=
+Disallow: /*?search=
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Allow major AI crawlers (boosts AI citation visibility in ChatGPT/Perplexity/Claude)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Allow Bing/Yandex/DuckDuckGo (powers Bing Chat, Brave, etc.)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block aggressive/abusive scrapers
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap declarations
+Sitemap: https://socialaviator.in/sitemap.xml
