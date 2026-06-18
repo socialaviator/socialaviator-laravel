@@ -5,6 +5,12 @@
 
     RewriteEngine On
 
+    # Canonical host: force HTTPS + non-www in a single 301 hop.
+    # Collapses http://www -> https://www -> https://non-www (2 hops) into one.
+    RewriteCond %{HTTP_HOST} ^www\.socialaviator\.in$ [NC,OR]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://socialaviator.in%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

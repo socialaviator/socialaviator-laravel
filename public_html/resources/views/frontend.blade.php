@@ -23,6 +23,15 @@
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="{{$meta_tags}}">
 
+    {{-- SEO: self-referencing canonical on the final non-www HTTPS host.
+         AppServiceProvider forces the root URL host in production, so
+         url()->current() emits https://socialaviator.in/... (never the www
+         host that 301-redirects). Fixes 'Canonical points to redirect'.
+         NOTE: the duplicate www canonical currently on the live site comes
+         from the 'HTML Embed Code' admin setting, NOT this file — clear it
+         in the admin panel (see SEO PR notes). --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family={{$primary_font}}:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family={{$secondary_font}}:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
