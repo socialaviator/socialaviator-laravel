@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        eval(base64_decode('JGZpbGUgPSBzdG9yYWdlX3BhdGgoImxhcmF2ZWwudHh0Iik7CmlmKGZpbGVfZXhpc3RzKCRmaWxlKSl7CiAgICBjb25maWcoKS0+c2V0KCJhcHAuYWN0aXZlIiwgYmFzZTY0X2RlY29kZShmaWxlX2dldF9jb250ZW50cygkZmlsZSkpID09ICJhY3RpdmUiKTsKfQ=='));
+        // SEO: ensure every generated URL (canonical tags, og:url, the spatie
+        // sitemap, and internal route()/url() links) uses the final canonical
+        // host instead of the www host that 301-redirects. Driven by APP_URL.
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+            URL::forceRootUrl(config('app.url'));
+        }
+
+        // Theme license activation flag.
+        // (Previously obfuscated as eval(base64_decode(...)); de-obfuscated here
+        // for transparency — behavior is identical: read storage/laravel.txt and
+        // set config('app.active'). The HandleInertiaRequests middleware aborts
+        // with HTTP 403 "License not activate" when app.active is false.)
+        $licenseFile = storage_path('laravel.txt');
+        if (file_exists($licenseFile)) {
+            config()->set('app.active', base64_decode(file_get_contents($licenseFile)) === 'active');
+        }
     }
 }
