@@ -30,7 +30,12 @@ class SeoRepository
             ->setLastModificationDate(Carbon::now()));
 
         // blog details sitemap
-        Post::all()->each(function (Post $post) use ($sitemap) {
+        // SEO FIX: only include PUBLISHED posts (status = '1'). The frontend
+        // blog routes (BlogController@index / BlogRepository::show) only ever
+        // serve status='1' posts and abort(404) on the rest, so an unfiltered
+        // Post::all() advertised unpublished/removed posts in the sitemap and
+        // produced '4XX page in sitemap' errors. Mirror the route's filter.
+        Post::where('status', '1')->get()->each(function (Post $post) use ($sitemap) {
             $sitemap->add(Url::create(route('blog.show', $post->slug))
                 ->setLastModificationDate($post->updated_at));
         });
